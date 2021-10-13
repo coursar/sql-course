@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+    ms:
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        environment:
+            - ACCEPT_EULA=Y
+            - SA_PASSWORD=P@ssw0rd!
+            - MSSQL_PID=Express
+        ports:
+            - "1433:1433"
+    pg:
+        image: postgres:alpine
+        ports:
+            - "5432:5432"
+        environment:
+            - POSTGRES_DB=db
+            - POSTGRES_USER=app
+            - POSTGRES_PASSWORD=P@ssw0rd!
+    adminer-ms:
+        image: adminer
+        restart: always
+        ports:
+            - "8001:8080"
+    adminer-pg:
+        image: adminer
+        restart: always
+        ports:
+            - "8001:8080"
