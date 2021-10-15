@@ -14,13 +14,8 @@ services:
             - "5433:5432"
         environment:
             - POSTGRES_PASSWORD=P@ssw0rd!
-    adminer-ms:
+    adminer:
         image: adminer
         restart: always
         ports:
-            - "8001:8080"
-    adminer-pg:
-        image: adminer
-        restart: always
-        ports:
-            - "8001:8080"
+            - "8080:8080"
